@@ -36,12 +36,17 @@ pipeline {
         }
       }
     }
-    stage('Schedule Staging Deployment') {
-      // when {
-      //   branch 'master'
-      // }
+    // stage('Schedule Staging Deployment') {
+    //   // when {
+    //   //   branch 'master'
+    //   // }
+    //   steps {
+    //     build job: 'deploy-webapp-staging', parameters: [string(name: 'ARTIFACT_ID', value: "${env.ARTIFACT_ID}")], wait: false
+    //   }
+    // }
+    stage('Deploy in Docker in my ubuntu server') {
       steps {
-        build job: 'deploy-webapp-staging', parameters: [string(name: 'ARTIFACT_ID', value: "${env.ARTIFACT_ID}")], wait: false
+        sh "docker run -d -p 3000:3000 ${dockerImage.id}"
       }
     }
   }
