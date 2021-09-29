@@ -41,7 +41,7 @@ pipeline {
       //   branch 'master'
       // }
       steps {
-        build job: 'master', parameters: [string(name: 'ARTIFACT_ID', value: "${env.ARTIFACT_ID}")], wait: false
+        build job: 'main', parameters: [string(name: 'ARTIFACT_ID', value: "${env.ARTIFACT_ID}")], wait: false
       }
     }
   }
