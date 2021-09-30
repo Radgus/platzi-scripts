@@ -6,7 +6,7 @@ const router = new Router();
 const sum = require('./sum');
 const rest = require('./rest');
 
-router.get('/', () => {
+router.get('/', (ctx, next) => {
   const result = 'Recuerda usar las rutas /add/number1/number2 y /rest/number1/number2';
   return ctx.body = { result };
 });
